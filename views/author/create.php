@@ -10,7 +10,7 @@ require "../PHP-OOP/views/tamplate/header.php" ?>
         </div>
     <?php endif ?>
     
-    <form method="POST">
+    <form method="POST" action="/author/create">
         <h3 class="text-center">Add Author</h3>
         <div class="row">
             <input 

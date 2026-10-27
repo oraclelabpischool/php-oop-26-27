@@ -1,10 +1,21 @@
-<?php require "tamplate/header.php" ?>
+<?php 
+
+require "tamplate/header.php";
+$no = 1;
+?>
 
     <div class="container mt-2">
         <div class="card">
             <div class="card-header text-center font-bold">
                 List Author PPLG Library
             </div>
+
+            <?php if(isset($_SESSION['success'])) : ?>
+                <div class="alert alert-success">
+                    <?= $_SESSION['success']  ?>
+                </div>
+            <?php endif ?>
+
             <div class="card-body">
                 <div class="d-flex mb-3">
                     <a 
@@ -19,6 +30,14 @@
                                 <th>Name</th>
                             </tr>
                         </thead>
+                        <tbody>
+                            <?php foreach($data as $author) :?>
+                                <tr>
+                                    <td><?=  $no++  ?></td>
+                                    <td><?=  $author->getName() ?></td>
+                                </tr>
+                            <?php endforeach ?>
+                        </tbody>
                     </table>
                 </div>
             </div>

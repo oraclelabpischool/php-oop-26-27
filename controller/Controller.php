@@ -2,9 +2,8 @@
 
 class Controller 
 {
-    static function view(
-        string $page
-    ){
+    static function view(string $page, $data = []){
+        $data;
         require $page;
     }
 }

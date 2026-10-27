@@ -1,10 +1,14 @@
 <?php
 
+require_once "./model/Author.php";
+
 class AuthorController extends Controller
 {
     static function index()
     {
-        return self::view("./views/author.php");
+        $author =  Author::all();
+
+        return self::view("./views/author.php", $author);
     }
 
     static function create()
@@ -19,8 +23,7 @@ class AuthorController extends Controller
             header("Location: /author/create");
             return;
         }
-        
-        session_destroy();
-        header("Location: /author");
+
+        Author::store($data);
     }
 }
